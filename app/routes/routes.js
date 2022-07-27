@@ -1,11 +1,19 @@
-var router = require("express").Router();
+var subjRouter = require("express").Router();
+var userRouter = require("express").Router()
+const auth = require("../middleware/auth.js")
 
 module.exports = app => {
     const subjects = require("../controllers/subject.controller.js");
+    const user = require("../controllers/user.controller.js")
     // Create a new Tutorial
-    router.post("/add", subjects.create);
+    subjRouter.post("/add", auth, subjects.create);
     // // Retrieve all Tutorials
-    router.get("/course", subjects.filterByCourse);
+    subjRouter.get("/course", auth, subjects.filterByCourse);
+
+    userRouter.post('/register', user.register);
+    userRouter.post('/login', user.login)
+
+    app.use('/api/user', userRouter)
     // // Retrieve all published Tutorials
     // router.get("/published", tutorials.findAllPublished);
     // // Retrieve a single Tutorial with id
@@ -16,14 +24,5 @@ module.exports = app => {
     // router.delete("/:id", tutorials.delete);
     // // Delete all Tutorials
     // router.delete("/", tutorials.deleteAll);
-    app.use('/api/subjects', router);
+    app.use('/api/subjects', subjRouter);
 };
-
-module.exports = app => {
-  const user = require("../controllers/user.controller.js")
-
-  router.post('/register', user.register)
-
-  app.use('/api/user', router)
-
-}

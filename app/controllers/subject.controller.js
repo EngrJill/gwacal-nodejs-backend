@@ -2,7 +2,7 @@ const db = require("../models/index");
 const Subject = db.subjects;
 //const Op = db.Sequelize.Op;
 // Create and Save a new Tutorial
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
     console.log("POSTING SOMETHING...")
     // Validate request
     if (!req.body.subjectName) {
@@ -11,6 +11,19 @@ exports.create = (req, res) => {
         });
         return;
     }
+
+    const filterSameDetails = {subjectName: req.body.subjectName, 
+                               course: req.body.course,
+                               yearLevel: req.body.yearLevel
+    }
+
+    const subjIsExisting = await Subject.findOne({ where: filterSameDetails });
+
+    if (subjIsExisting) {
+        res.status(400).send("Subject Detail is already existent");
+        return;
+    }
+
     // Create a Tutorial
     const subject = {
         subjectName: req.body.subjectName,
@@ -31,7 +44,7 @@ exports.create = (req, res) => {
         });
 };
 // // Retrieve all Tutorials from the database.
-exports.filterByCourse = (req, res) => {
+exports.filterByCourse = async (req, res) => {
     // Validate request
     console.log("POINTING HERE IN FINDALL")
     if (!req.body.course) {
