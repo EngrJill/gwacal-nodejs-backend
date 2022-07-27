@@ -1,0 +1,27 @@
+{
+  "name": "gwacalculatorapi",
+  "version": "1.0.0",
+  "description": "advance gwa calculator api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "n": "node server.js"
+  },
+  "keywords": [
+    "gwacalculator"
+  ],
+  "author": "Daniel A. Soriano II",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
+    "sequelize": "^6.21.3"
+  }
+}
