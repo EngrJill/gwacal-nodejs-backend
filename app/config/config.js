@@ -1,11 +1,11 @@
 //Database configurations
 
 module.exports = {
-    HOST: "localhost",
-    USER: "root",
-    PASSWORD: "secret",
-    DB: "gwacal_node",
-    dialect: "mysql",
+    HOST: "",
+    USER: "",
+    PASSWORD: "",
+    DB: "",
+    dialect: "",
     pool: {
       max: 5,
       min: 0,
@@ -14,4 +14,4 @@ module.exports = {
     }
 };
 
-console.log("Hello Config.js")
+console.log("Hello Config.js hey hey hey")
