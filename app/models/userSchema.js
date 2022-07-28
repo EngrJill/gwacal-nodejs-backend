@@ -7,25 +7,33 @@ module.exports = (sequelize, Sequelize) => {
         primaryKey: true
       },
       firstName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       lastName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       course: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       school: {
         type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       token: {
         type: Sequelize.STRING
+      },
+      isAdmin: {
+        type: Sequelize.BOOLEAN
       }
 
     });

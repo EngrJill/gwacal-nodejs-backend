@@ -22,4 +22,5 @@ db.sequelize = sequelize;
 
 db.subjects = require("./subjectSchema.js")(sequelize, Sequelize);
 db.user = require("./userSchema.js")(sequelize, Sequelize);
+db.grades = require("./gradesSchema.js")(sequelize, Sequelize);
 module.exports = db;

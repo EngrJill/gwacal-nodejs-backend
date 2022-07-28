@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
       },
       yearLevel: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING
       },
       equivalentUnits: {
         type: Sequelize.FLOAT

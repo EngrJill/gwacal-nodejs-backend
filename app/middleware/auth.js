@@ -14,7 +14,6 @@ const verifyToken = (req, res, next) => {
     const bearerHeader = req.headers["authorization"]
     const bearer = bearerHeader.split(" ");
     const bearerToken = bearer[1];
-    console.log(bearerToken)
     const decoded = jwt.verify(bearerToken, config.TOKEN_KEY);
     req.user = decoded;
   } catch (err) {
