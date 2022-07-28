@@ -1,4 +1,4 @@
-## Preliminary Instructions
+## Preliminary Instructions now
 
 1. Please make a new folder inside app folder called config and make a config.js file.
 
